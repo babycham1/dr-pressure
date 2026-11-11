@@ -1,6 +1,6 @@
 # One-off generator for the Dr. Pressure static pages (shared header/footer).
 import os
-ROOT = r"C:/Users/troym/DR Pressure"
+ROOT = os.path.dirname(os.path.abspath(__file__))
 PHONE = "+17868622611"; PHONE_TXT = "(786) 862-2611"
 EMAIL = "doctorpressurecleaning@gmail.com"
 IG = "https://www.instagram.com/dr.pressurecleaning/"
