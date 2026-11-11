@@ -103,23 +103,45 @@ p { margin: 0 0 1em; }
   .header-actions .btn { display: none; } /* the bottom quote bar covers this on small phones */
 }
 
-@media (min-width: 960px) {
-  :root { --header-h: 120px; }
-  .brand img { height: 104px; }
-  .nav { display: flex; gap: 4px; margin-left: 24px; }
+/* Header gets a little more width than page content so logo, nav, phone and button fit */
+.site-header .container { width: min(1320px, 100% - 32px); }
+/* Header items never wrap onto two lines */
+.nav a, .header-phone, .header-actions .btn { white-space: nowrap; }
+.header-actions { flex-shrink: 0; }
+
+/* Full nav only when there is room for it; below this the menu button is used */
+@media (min-width: 1140px) {
+  :root { --header-h: 108px; }
+  .brand img { height: 88px; }
+  .nav { display: flex; gap: 2px; margin-left: 20px; }
   .nav a {
-    color: #e6ebf2; text-decoration: none; font-weight: 600; font-size: .98rem;
-    padding: 10px 14px; border-radius: 10px;
+    color: #e6ebf2; text-decoration: none; font-weight: 600; font-size: .95rem;
+    padding: 10px 10px; border-radius: 10px;
   }
   .nav a:hover { background: #151b24; color: #fff; }
   .nav a[aria-current="page"] { color: var(--blue); }
   .header-phone {
     display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none;
-    font-weight: 700; padding: 10px 12px;
+    font-weight: 700; padding: 10px 8px;
   }
   .header-phone .icon { color: var(--blue); }
-  .header-actions .btn { font-size: 1.25rem; padding: 12px 26px; }
+  .header-actions .btn { font-size: 1.15rem; padding: 12px 22px; }
   .nav-toggle, .mobile-nav, .mobile-nav.open { display: none; }
+}
+@media (min-width: 1280px) {
+  :root { --header-h: 120px; }
+  .brand img { height: 104px; }
+  .nav { gap: 4px; margin-left: 24px; }
+  .nav a { font-size: .98rem; padding: 10px 14px; }
+  .header-phone { padding: 10px 12px; }
+  .header-actions .btn { font-size: 1.25rem; padding: 12px 26px; }
+}
+/* Tablet / small laptop: show the phone number next to the menu button */
+@media (min-width: 640px) and (max-width: 1139px) {
+  .header-phone {
+    display: inline-flex; align-items: center; gap: 8px; color: #fff; text-decoration: none; font-weight: 700; padding: 10px 6px;
+  }
+  .header-phone .icon { color: var(--blue); }
 }
 
 /* ===== Hero ===== */
