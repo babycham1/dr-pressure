@@ -63,6 +63,14 @@ REVIEWS = [
 AREAS = ["Boca Raton", "Coral Springs", "Davie", "Fort Lauderdale", "Hollywood", "Miami", "Miramar", "Parkland", "Pembroke Pines", "Plantation", "Pompano Beach", "Sunrise", "Weston"]
 NAV = [("index.html", "Home"), ("services.html", "Services"), ("our-work.html", "Before & After"), ("index.html#reviews", "Reviews"), ("quote.html", "Contact")]
 
+# Preview mode: shows a "design preview" banner on every page and asks search engines not to index it.
+# Set PREVIEW = False (then run `python build.py`) when the site launches on the owner's domain.
+PREVIEW = True
+PREVIEW_META = '\n<meta name="robots" content="noindex, nofollow">' if PREVIEW else ""
+PREVIEW_BANNER = ('\n<div class="preview-banner" role="note"><strong>Design preview</strong>'
+                  '<span>Concept redesign of drpressureservices.com. Not the official Dr. Pressure website.</span></div>') if PREVIEW else ""
+PREVIEW_FOOTER = ' <span class="preview-note">Design preview: not the official website.</span>' if PREVIEW else ""
+
 def quote_btn(cls="", label="Get a Quote"):
     return f'<a class="btn btn--quote {cls}" href="quote.html">{label}</a>'
 
@@ -75,16 +83,16 @@ def head(title, desc, page):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
-<meta name="description" content="{desc}">
+<meta name="description" content="{desc}">{PREVIEW_META}
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/styles.css?v=13">
+<link rel="stylesheet" href="css/styles.css?v=15">
 </head>
 <body>
-<a class="skip-link" href="#main">Skip to content</a>
+<a class="skip-link" href="#main">Skip to content</a>{PREVIEW_BANNER}
 <header class="site-header">
   <div class="container header-inner">
     <a class="brand" href="index.html"><img src="assets/img/logo.png" width="640" height="253" alt="Dr. Pressure Cleaning Services LLC: Bringing your property back to life"></a>
@@ -131,7 +139,7 @@ def foot():
       </ul>
       <p style="margin-top:18px">{quote_btn()}</p></div>
     </div>
-    <div class="footer-bottom">&copy; <span data-year>2026</span> Dr. Pressure Cleaning Services LLC. All rights reserved.</div>
+    <div class="footer-bottom">&copy; <span data-year>2026</span> Dr. Pressure Cleaning Services LLC. All rights reserved.{PREVIEW_FOOTER}</div>
   </div>
 </footer>
 <div class="quote-bar" aria-label="Quick contact">

@@ -69,6 +69,18 @@ p { margin: 0 0 1em; }
 .btn--lg { font-size: 1.5rem; padding: 16px 36px; }
 .icon { width: 1.1em; height: 1.1em; fill: currentColor; flex: none; }
 
+/* ===== Preview banner (build.py PREVIEW = True) ===== */
+.preview-banner {
+  background: #fed100; color: #111; text-align: center; font-size: .9rem; line-height: 1.35;
+  padding: 8px 16px; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 10px;
+}
+.preview-banner strong {
+  font-family: var(--display); font-size: 1rem; letter-spacing: .08em; text-transform: uppercase;
+  background: #111; color: #fed100; padding: 1px 8px; border-radius: 4px;
+}
+
+.preview-note { color: #fed100; font-weight: 600; }
+
 /* ===== Header ===== */
 .site-header {
   position: sticky; top: 0; z-index: 50;

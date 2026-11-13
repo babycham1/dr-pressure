@@ -20,6 +20,9 @@ exterior/pressure cleaning). Plain HTML/CSS/JS, no framework.
   Tally form (https://tally.so/r/RGGEVv).
 - Use only content from the current site or supplied by the owner. Don't invent reviews, stats or claims.
 - Check desktop and 375px phone width before calling any change done.
+- Preview mode: `PREVIEW = True` in `build.py` adds a yellow "Design preview" banner, a footer note,
+  and a `noindex` meta tag to every page. The site is a pitch to the owner, not yet approved. Set it
+  to `False` and rebuild only when the owner has agreed and the site launches on their domain.
 
 ## Contact
 Phone (786) 862-2611 · doctorpressurecleaning@gmail.com · Instagram @dr.pressurecleaning · Facebook profile id 61586886702951.
